@@ -1,0 +1,17 @@
+{% extends "mobility/jqtouch/base.html" %}
+{% load i18n %}
+{% block breadcrumbs %}{% trans 'Log in' %}</a>{% endblock %}
+{% block body %}
+<div class="toolbar">
+    <h1>{% trans 'Log in' %}</h1>
+    <a class="back" href="#">Home</a>
+</div>
+<form action="{{ app_path }}" class="panel" method="post" selected="true">
+    <ul class="rounded">
+        <li><input type="text" name="username" id="id_username" value="" placeholder="Username" /></li>        <li><input type="password" name="password" id="id_password" value="" placeholder="Password" /></li>
+        <li><input type="hidden" name="this_is_the_login_form" value="1" /></li>
+        <li><input type="hidden" name="post_data" value="{{ post_data }}" /></li>    </ul>
+    {% if error_message %}<h1 class="error">{{ error_message }}</h1>{% endif %}
+</form>
+</div>
+{% endblock %}
